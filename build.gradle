@@ -20,6 +20,18 @@ nohttp {
 	source.exclude "spring-boot-project/spring-boot-tools/spring-boot-buildpack-platform/src/test/resources/org/springframework/boot/buildpack/platform/docker/export.tar"
 }
 
+plugins {
+  id "org.sonarqube" version "3.5.0.2730"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "jellyslalsher_spring-boot"
+    property "sonar.organization", "jellyslalsher"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
 check {
 	dependsOn checkstyleNohttp
 }
